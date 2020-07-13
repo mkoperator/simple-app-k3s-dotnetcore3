@@ -1,3 +1,9 @@
+MYNAME="mikhail"
+MYDOCKERUSERNAME="thecrazyrussian"
+customize:
+	cat "kubernetes/templates/deployment.yaml.template" | sed "s/{{MYNAME}}/$MYNAME/g" > kubernetes/deployment.yaml
+
+
 build:
 	docker build . --tag thecrazyrussian/simple-app-dotnet:2
 
