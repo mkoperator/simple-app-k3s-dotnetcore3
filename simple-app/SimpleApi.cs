@@ -2,7 +2,7 @@ using System;
 
 namespace simple_app
 {
-    public class SimpleApi
+    public class SimpleApp
     {
         public string Summary { get; set; }
     }

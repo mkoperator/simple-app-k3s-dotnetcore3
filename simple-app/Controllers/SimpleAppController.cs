@@ -9,25 +9,25 @@ namespace simple_app.Controllers
 {
     [ApiController]
     [Route("/")]
-    public class SimpleApiController : ControllerBase
+    public class SimpleAppController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
             "This is a simple api"
         };
 
-        private readonly ILogger<SimpleApiController> _logger;
+        private readonly ILogger<SimpleAppController> _logger;
 
-        public SimpleApiController(ILogger<SimpleApiController> logger)
+        public SimpleAppController(ILogger<SimpleAppController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<SimpleApi> Get()
+        public IEnumerable<SimpleApp> Get()
         {
 
-            return Enumerable.Range(1, 1).Select(index => new SimpleApi
+            return Enumerable.Range(1, 1).Select(index => new SimpleApp
             {
                 Summary = Summaries[0]
             })
