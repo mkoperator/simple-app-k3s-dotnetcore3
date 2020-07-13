@@ -2,6 +2,7 @@ MYNAME="mikhail"
 MYDOCKERUSER="thecrazyrussian"
 IMAGETAG=1
 customize:
+	mkdir -p kubernetes
 	cat "templates/deployment.yaml.template" | sed "s/{{MYNAME}}/${MYNAME}/g; s/{{MYDOCKERUSER}}/${MYDOCKERUSER}/g; s/{{IMAGETAG}}/${IMAGETAG}/g" > kubernetes/deployment.yaml
 	cat "templates/ingress.yaml.template" | sed "s/{{MYNAME}}/${MYNAME}/g" > kubernetes/ingress.yaml
 	cat "templates/service.yaml.template" | sed "s/{{MYNAME}}/${MYNAME}/g" > kubernetes/service.yaml
