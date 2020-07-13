@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mikhail-app
+  annotations:
+    cert-manager.io/issuer: rancher
+    cert-manager.io/issuer-kind: Issuer
+spec:
+  rules:
+  - host: mikhail.rancher.simpleblocks.net
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mikhail-app
+          servicePort: 80
+  tls:
+    - hosts:
+      - "mikhail.rancher.simpleblocks.net"
+      secretName: tls-ingress-mikhail

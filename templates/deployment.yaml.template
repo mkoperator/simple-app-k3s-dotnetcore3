@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: {{MYNAME}}-app
   labels:
-    app: simple-app
+    app: {{MYNAME}}-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-app
+      app: {{MYNAME}}-app
   template:
     metadata:
       labels:
-        app: simple-app
+        app: {{MYNAME}}-app
     spec:
       containers:
-      - name: simple-app
-        image: docker.io/thecrazyrussian/simple-app-dotnet:2
+      - name: {{MYNAME}}-app
+        image: docker.io/{{MYDOCKERUSER}}/{{MYNAME}}-app-dotnet:{{IMAGETAG}}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
