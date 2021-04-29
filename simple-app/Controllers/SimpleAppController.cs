@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace simple_app.Controllers
 {
@@ -11,6 +12,7 @@ namespace simple_app.Controllers
     [Route("/")]
     public class SimpleAppController : ControllerBase
     {
+        private readonly IConfiguration Configuration;
         private static readonly string[] Summaries = new[]
         {
             "This is a simple api"
@@ -18,9 +20,10 @@ namespace simple_app.Controllers
 
         private readonly ILogger<SimpleAppController> _logger;
 
-        public SimpleAppController(ILogger<SimpleAppController> logger)
+        public SimpleAppController(ILogger<SimpleAppController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            Configuration = configuration;
         }
 
         [HttpGet]
@@ -29,7 +32,7 @@ namespace simple_app.Controllers
 
             return Enumerable.Range(1, 1).Select(index => new SimpleApp
             {
-                Summary = Summaries[0]
+                Summary = Summaries[0] + Configuration["Prefix"]
             })
             .ToArray();
         }

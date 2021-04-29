@@ -1,6 +1,6 @@
 MYNAME="mikhail"
 MYDOCKERUSER="thecrazyrussian"
-IMAGETAG=1
+IMAGETAG=2
 customize:
 	mkdir -p kubernetes
 	cat "templates/deployment.yaml.template" | sed "s/{{MYNAME}}/${MYNAME}/g; s/{{MYDOCKERUSER}}/${MYDOCKERUSER}/g; s/{{IMAGETAG}}/${IMAGETAG}/g" > kubernetes/deployment.yaml
