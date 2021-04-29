@@ -15,7 +15,7 @@ namespace simple_app.Controllers
         private readonly IConfiguration Configuration;
         private static readonly string[] Summaries = new[]
         {
-            "This is a simple api"
+            "This is a simple api."
         };
 
         private readonly ILogger<SimpleAppController> _logger;
@@ -32,7 +32,7 @@ namespace simple_app.Controllers
 
             return Enumerable.Range(1, 1).Select(index => new SimpleApp
             {
-                Summary = Summaries[0] + Configuration["Prefix"]
+                Summary = Summaries[0] + " It was deployed in " + Configuration["Prefix"] + "."
             })
             .ToArray();
         }
