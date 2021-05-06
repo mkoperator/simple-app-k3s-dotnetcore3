@@ -14,7 +14,7 @@ spec:
         backend:
           serviceName: {{MYNAME}}-app
           servicePort: 80
-  tls:
-    - hosts:
-      - "{{MYNAME}}.rancher.simpleblocks.net"
-      secretName: tls-ingress-{{MYNAME}}
+ # tls:
+ #   - hosts:
+ #     - "{{MYNAME}}.rancher.simpleblocks.net"
+ #     secretName: tls-ingress-{{MYNAME}}
